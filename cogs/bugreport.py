@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 import os
+from dotenv import load_dotenv
 import traceback
 
 class BugModal(discord.ui.Modal,title="Submit a Bug Report (or Suggestion!)"):

@@ -4,6 +4,7 @@ from discord import app_commands
 from typing import Dict
 import mysql.connector
 import os
+from dotenv import load_dotenv
 
 class StatsModal(discord.ui.Modal, title="Edit Your Basic Stats"):
   def __init__(self, data: Dict[str, str], **kwargs):
@@ -24,11 +25,11 @@ class StatsModal(discord.ui.Modal, title="Edit Your Basic Stats"):
     print(f"Paragon:{self.uplvl.value}, CR: {self.upcr.value}, DMG: {self.updmg.value}, LF: {self.uplife.value}, Reso: {self.upreso.value}")
     if isinstance(int(self.uplvl.value), int) and isinstance(int(self.upcr.value),int) and isinstance(int(self.updmg.value),int) and isinstance(int(self.uplife.value),int) and isinstance(int(self.upreso.value), int):
       #Yep, just numbers
-      db = mysql.connector.connect(database=os.environ['dbname'],
-                                   host=os.environ['dbhost'],
-                                   user=os.environ['dbuser'],
-                                   password=os.environ['dbpass'],
-                                   port=os.environ['dbport'])
+      db = mysql.connector.connect(database=  os.environ['DB_NAME'],
+                                    host=      os.environ['DB_HOST'],
+                                    user=      os.environ['DB_USER'],
+                                    password=  os.environ['DB_PASS'],
+                                    port=      os.environ['DB_PORT'])
       sql = (f"UPDATE users set plvl = %s, cr = %s, dmg = %s, life = %s, reso = %s where d_uid = '{interaction.user.id}' and d_gid = '{interaction.guild_id}'")
       val = (self.uplvl.value,self.upcr.value,self.updmg.value,self.uplife.value,self.upreso.value)
       db.reconnect()

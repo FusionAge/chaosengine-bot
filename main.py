@@ -7,6 +7,7 @@ import os
 import socket
 #import asyncio
 import mysql.connector
+from dotenv import load_dotenv
 
 class Client(commands.Bot):
   def __init__(self):
@@ -26,18 +27,19 @@ class Client(commands.Bot):
       print(prfx + "IP:" + Fore.YELLOW + str(socket.gethostbyname(socket.gethostname())))
       synced = await client.tree.sync()
       print(prfx + "Slash CMDs Synced:" + Fore.YELLOW + str(len(synced)) + " Commands")
-      print(prfx + "Logging to Channel: " + Fore.YELLOW + os.environ['chan_logs'])
+      print(prfx + "Logging to Channel: " + Fore.YELLOW + os.environ['CHAN_LOGS'])
 
 try:
+  load_dotenv()
   client = Client()
   client.db = mysql.connector.connect(
-    database=  os.environ['dbname'],
-    host=      os.environ['dbhost'],
-    user=      os.environ['dbuser'],
-    password=  os.environ['dbpass'],
-    port=      os.environ['dbport']
+    database=  os.environ['DB_NAME'],
+    host=      os.environ['DB_HOST'],
+    user=      os.environ['DB_USER'],
+    password=  os.environ['DB_PASS'],
+    port=      os.environ['DB_PORT']
   )
-  client.run(os.environ['discordkey'])
+  client.run(os.environ['DISCORDKEY'])
   
 except discord.HTTPException as e:
     if e.status == 429:

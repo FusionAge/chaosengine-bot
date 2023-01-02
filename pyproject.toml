@@ -1,20 +1,20 @@
 [tool.poetry]
-name = "python-template"
-version = "0.1.0"
-description = ""
+name = "chaosengine-bot"
+version = "0.2.0"
+description = "A discord bot for Diablo:Immortal clans and warbands"
 authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+packages = [{include = "chaosengine_bot"}]
 
 [tool.poetry.dependencies]
-python = ">=3.8.0,<3.9"
+python = "^3.10"
 numpy = "^1.22.2"
-replit = "^3.2.4"
-"discord.py" = "^1.7.3"
+"discord.py" = "^2.1.0"
 colorama = "^0.4.6"
 discord = "^2.1.0"
 mysql-connector-python = "^8.0.31"
-
-[tool.poetry.dev-dependencies]
+python-dotenv = "^0.21.0"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

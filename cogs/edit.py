@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord import app_commands, ui, Interaction
 import mysql.connector
 import os
+from dotenv import load_dotenv
 from typing import Dict
 
 class EditModal(discord.ui.Modal, title="Edit ChaosEngine Clan"):
@@ -14,11 +15,11 @@ class EditModal(discord.ui.Modal, title="Edit ChaosEngine Clan"):
     self.add_item(self.gserver)
 
   async def on_submit(self, interaction: discord.Interaction):
-    db = mysql.connector.connect(database=os.environ['dbname'],
-                                 host=os.environ['dbhost'],
-                                 user=os.environ['dbuser'],
-                                 password=os.environ['dbpass'],
-                                 port=os.environ['dbport'])
+    db = mysql.connector.connect(database=  os.environ['DB_NAME'],
+                                  host=      os.environ['DB_HOST'],
+                                  user=      os.environ['DB_USER'],
+                                  password=  os.environ['DB_PASS'],
+                                  port=      os.environ['DB_PORT'])
     sql = (f"UPDATE guilds set guildname = %s, guildserver = %s where d_gid = %s")
     val = (str(self.gname),str(self.gserver),str(interaction.guild_id))
     db.reconnect()

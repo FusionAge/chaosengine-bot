@@ -3,6 +3,7 @@ import datetime,time
 from discord.ext import commands
 from discord import app_commands
 import os
+from dotenv import load_dotenv
 
 class About(commands.Cog):
     def __init__(self,client: commands.Bot):
@@ -31,7 +32,7 @@ class About(commands.Cog):
       )
       embed.add_field(
           name="Version",
-          value= os.environ['version']
+          value= os.environ['VERSION']
       )
       embed.add_field(
           name="Uptime",

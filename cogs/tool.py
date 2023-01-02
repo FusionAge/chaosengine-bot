@@ -2,8 +2,6 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 import uuid
-import os
-
 
 class Tool(commands.Cog):
   def __init__(self, client: commands.Bot):

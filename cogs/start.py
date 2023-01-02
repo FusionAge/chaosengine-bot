@@ -3,6 +3,7 @@ from discord.ext import commands
 from discord import app_commands
 import mysql.connector
 import os
+from dotenv import load_dotenv
 
 class StartModal(discord.ui.Modal, title="New ChaosEngine Clan"):
   gname = discord.ui.TextInput(label="Clan Name",
@@ -16,11 +17,11 @@ class StartModal(discord.ui.Modal, title="New ChaosEngine Clan"):
   #gtype = discord.ui.Select(placeholder="Select Clan Type",options=GuildTypes)
   async def on_submit(self, interaction: discord.Interaction):
     #Add to the DB
-    db = mysql.connector.connect(database=os.environ['dbname'],
-                                 host=os.environ['dbhost'],
-                                 user=os.environ['dbuser'],
-                                 password=os.environ['dbpass'],
-                                 port=os.environ['dbport'])
+    db = mysql.connector.connect(database=  os.environ['DB_NAME'],
+                                  host=      os.environ['DB_HOST'],
+                                  user=      os.environ['DB_USER'],
+                                  password=  os.environ['DB_PASS'],
+                                  port=      os.environ['DB_PORT'])
     db.reconnect()
     sql = (f"CALL create_guild(%s,%s,1,%s,%s,%s)")
     val = (str(interaction.guild_id), str(interaction.guild.name), str(self.gname), str(self.gserver),str(interaction.user.id))
