@@ -1,15 +1,12 @@
-# Python Discord Bot
+# ChaosEngine
+## Discord Bot for Diablo:Immortal Clans & Warbands
 
-This is a starting point for making your own Discord bot using Python and the [discordpy](https://discordpy.readthedocs.io/) library.
-Read [their getting-started guides](https://discordpy.readthedocs.io/en/stable/#getting-started) to get the most out of this template.
+ChaosEngine is a tool for Diablo:Immortal Clans/Warbands and Players. It allows you to store basic stats (Paragon Level, Combat Rating, Resonance, Damage, and Life) as well as manage your existing Set Items and Wanted Sets, and ChaosEngine will tell you where to farm.
 
 ## Getting Started
 
-To get set up, you'll need to follow [these bot account setup instructions](https://discordpy.readthedocs.io/en/stable/discord.html),
-and then copy the token for your bot and added it as a secret with the key of `TOKEN` in the "Secrets (Environment variables)" panel.
+To get started, just visit https://ChaosEngine.app in your browser. From there, you can read more documentation and add the bot to your discord server.
 
 ## FAQ
 
-If you get the following error message while trying to start the server: `429 Too Many Requests` (accompanied by a lot of HTML code), 
-try the advice given in this Stackoverflow question:
-https://stackoverflow.com/questions/66724687/in-discord-py-how-to-solve-the-error-for-toomanyrequests
+More is coming.
