@@ -1,0 +1,21 @@
+import discord
+from discord.ext import commands
+from discord import app_commands
+
+class Color(commands.Cog):
+    def __init__(self, client: commands.Bot):
+        self.client = client
+        print("color.py LOADED!")
+
+    @app_commands.command(name="choosecolor", description="Pick a Color")
+    @app_commands.describe(colors='Choose a Color')
+    @app_commands.choices(colors=[
+      discord.app_commands.Choice(name='RED',value=1),
+      discord.app_commands.Choice(name='BLUE',value=2),
+      discord.app_commands.Choice(name='GREEN',value=3)
+    ])
+    async def choosecolor(self,interaction: discord.Interaction,colors: discord.app_commands.Choice[int]):
+        await interaction.response.send_message(f'Selected: {colors.name}')
+
+async def setup(client:commands.Bot) -> None:
+    await client.add_cog(Color(client))

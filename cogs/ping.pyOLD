@@ -1,0 +1,16 @@
+import discord
+from discord.ext import commands
+from discord import app_commands
+
+class Ping(commands.Cog):
+    def __init__(self,client: commands.Bot):
+        self.client = client
+        print("ping.py LOADED!")   
+      
+    @app_commands.command(name="ping", description="Returns the ChaosEngine bot latency")
+    async def ping(self,interaction: discord.Interaction):
+        bot_latency = round(self.client.latency * 1000)
+        await interaction.response.send_message(f"Latency: {bot_latency}ms?")
+
+async def setup(client:commands.Bot) -> None:
+    await client.add_cog(Ping(client))

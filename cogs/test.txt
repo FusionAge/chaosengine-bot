@@ -1,0 +1,25 @@
+import mysql.connector
+import discord
+from discord.ext import commands
+
+class MyCog(commands.Cog):
+    def __init__(self, bot):
+        self.bot = bot
+    
+    @commands.command()
+    async def register(self, ctx, *args):
+        # Connect to MySQL database
+        conn = mysql.connector.connect(user='<username>', password='<password>', host='<host>', database='<database>')
+        cursor = conn.cursor()
+
+        # Query ref_classes table
+        cursor.execute('SELECT classid, classname FROM ref_classes')
+        ref_classes = cursor.fetchall()
+
+        # Create a list of app_commands.Choice objects
+        choices = [discord.ext.commands.Choice(value=classid, name=classname) for classid, classname in ref_classes]
+
+        # Do something with the choices...
+
+def setup(bot):
+    bot.add_cog(MyCog(bot))

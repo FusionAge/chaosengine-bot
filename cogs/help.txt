@@ -1,0 +1,50 @@
+GENERAL FUNCTIONS
+
+/help
+You just used it.
+
+/about
+About ChaosEngine
+
+/bugreport
+Send a bugreport to the botmaster. Please be as detailed as possible (what you did, what happened)
+
+ADMINISTRATIVE COMMANDS
+
+/start
+Must be done FIRST! Add your clan/discord server to the database
+
+/admin <user>
+Add another user as administrator of ChaosEngine
+
+/remove <user>
+Remove a user of ChaosEngine
+
+/clan
+Generate a report of the clan, with stats
+
+USER COMMANDS
+
+/register
+Allows users to self-register with the clan
+
+/tool
+Launch a web-based tool (if you're not a fan of Discord commands)
+
+/stats <paragon level> <resonance> <combat rating> <damage> <life>
+Allows users to update their primary stats with one command
+
+/life  <life>
+Allows users to update their LIFE value
+
+/paragon <paragon level>
+Allows users to update their paragon level
+
+/reso <resonance value>
+Allows users to update their resonance value
+
+/cr <combat rating>
+Allows users to update their combat rating
+
+/damage <damage value>
+Allows users to update their damage value
