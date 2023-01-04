@@ -1,0 +1,24 @@
+[30;1m2023-01-03 04:46:46[0m [34;1mINFO    [0m [35mdiscord.client[0m logging in using static token
+[30;1m2023-01-03 04:46:46[0m [34;1mINFO    [0m [35mdiscord.gateway[0m Shard ID None has connected to Gateway (Session ID: 99c272600dd745c36a7934452a8115ba).
+reso.py LOADED!
+register.py LOADED!
+help.py LOADED!
+edit.py LOADED!
+stats.py LOADED!
+paragon.py LOADED!
+setinfo.py LOADED!
+damage.py LOADED!
+cr.py LOADED!
+start.py LOADED!
+life.py LOADED!
+bugreport.py LOADED!
+register.py LOADED!
+cetest.py LOADED!
+tool.py LOADED!
+[40m[32m04:46:48 UTC[49m[37m Bot ID:[33m1009595862600654928
+[40m[32m04:46:48 UTC[49m[37m Discord Version:[33m2.1.0
+[40m[32m04:46:48 UTC[49m[37m Python Version:[33m3.10.9
+[40m[32m04:46:48 UTC[49m[37m Node:[33mchaosengine.app
+[40m[32m04:46:48 UTC[49m[37m IP:[33m45.15.25.247
+[40m[32m04:46:48 UTC[49m[37m Slash CMDs Synced:[33m16 Commands
+[40m[32m04:46:48 UTC[49m[37m Logging to Channel: [33m1054151285760331818
