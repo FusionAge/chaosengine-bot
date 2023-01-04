@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from discord import app_commands
 import uuid
+import os
 
 class Tool(commands.Cog):
   def __init__(self, client: commands.Bot):
@@ -11,7 +12,7 @@ class Tool(commands.Cog):
   @app_commands.command(name="tool",description="Web-based tool for easier updating and additional functions")
   async def tool(self, interaction: discord.Interaction):
     #SETUP
-    channel = self.client.get_channel(int(os.environ['chan_errors'])) 
+    channel = self.client.get_channel(int(os.environ['CHAN_ERRORS'])) 
     data = self.client.db
     data.reconnect()
     cursor = data.cursor()
@@ -49,7 +50,7 @@ class Tool(commands.Cog):
             else:
               user = self.client.get_user(interaction.user.id)
               dm_channel = await user.create_dm()
-              await dm_channel.send(f"Here's your link: https://chaosengine.app/mystats/{thisuuid}")
+              await dm_channel.send(f"Here's your link: {os.environ['BASE_URL']}/mystats/{thisuuid}")
               await interaction.response.send_message(f'Sent you a link via DM!',ephemeral=True)
           finally:
             cursor.close()        
