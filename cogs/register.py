@@ -41,7 +41,7 @@ class Register(commands.Cog):
       #Does the Clan Exist yet?
       qry = (f"select count(*) from guilds where d_gid = '{interaction.guild_id}'")
       cursor.execute(qry)
-      if cursor.fetchone()[-1][-1] > 0:
+      if cursor.fetchall()[-1][-1] > 0:
         #Clan Exists
         qry = (f"INSERT into users(d_uid,d_unm,d_gid,charname,classid,userid) VALUES(%s,%s,%s,%s,%s,%s)")
         val = (str(interaction.user.id), str(interaction.user),

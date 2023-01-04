@@ -34,7 +34,7 @@ class Bug(commands.Cog):
     @app_commands.command(name="bugreport", description="Found a bug or have a suggestion? Use this command!")
     async def start(self,interaction: discord.Interaction):
       bugmodal = BugModal()
-      bugmodal.chan = self.client.get_channel(int(os.environ['chan_bugreports']))
+      bugmodal.chan = self.client.get_channel(int(os.environ['CHAN_BUGREPORTS']))
       bugmodal.user = interaction.user
       await interaction.response.send_modal(bugmodal)
       

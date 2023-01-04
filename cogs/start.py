@@ -29,7 +29,7 @@ class StartModal(discord.ui.Modal, title="New ChaosEngine Clan"):
     try:
       cursor.execute(sql, val)
       db.commit()
-      botmaster = interaction.client.get_user(int(os.environ['ownerid']))
+      botmaster = interaction.client.get_user(int(os.environ['OWNERID']))
       dm_channel = await botmaster.create_dm()
       await dm_channel.send(f"New Clan Added: {self.gname} on {self.gserver} with a DISCORDID of {interaction.guild_id}")
     except mysql.connector.Error as e:
